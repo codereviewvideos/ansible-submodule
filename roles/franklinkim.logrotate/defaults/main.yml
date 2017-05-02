@@ -1,0 +1,22 @@
+---
+# For more information about default variables see:
+# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
+#
+# logrotate_scripts:
+#   - name: nginx
+#     path: /var/log/nginx/*.log
+#     options:
+#       - daily
+#       - compress
+#       - rotate 6
+#       - missingok
+#       - copytruncate
+#       - delaycompress
+#     scripts:
+#       - postrotate: "[ -s /run/nginx.pid ] && kill USR1 `cat /run/nginx.pid`"
+#
+
+# package name (version)
+logrotate_package: logrotate
+# script to install
+logrotate_scripts: []

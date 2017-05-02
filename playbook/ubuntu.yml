@@ -1,0 +1,5 @@
+- hosts: all
+  sudo: True
+
+- include: linux-server-basics.yml
+- include: ubuntu-server-basics.yml

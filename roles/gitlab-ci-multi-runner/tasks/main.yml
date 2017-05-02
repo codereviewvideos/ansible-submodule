@@ -1,0 +1,13 @@
+---
+- stat: path='/usr/bin/gitlab-ci-multi-runner'
+  register: gitlabCIbinary
+
+- name: install
+  when: gitlabCIbinary.stat.exists == False
+  include: install.yml
+
+- name: service configurator...
+  include: service-config.yml
+  
+- name: restart gitlab-runner
+  service: name=gitlab-runner state=restarted

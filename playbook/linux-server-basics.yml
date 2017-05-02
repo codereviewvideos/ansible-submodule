@@ -1,0 +1,21 @@
+- hosts: all
+  sudo: True
+
+
+  vars:
+    sshd_UseDNS: 'no'
+    sshd_PermitRootLogin: 'no'
+    vim_config:
+      - 'set syntax'
+      - 'set number'
+
+
+  roles:
+    - linux-core-software
+    - ANXS.hostname
+    - ssh
+    - users
+    - ohmyzsh
+    - { role: timezone, timezone: "Europe/London" }
+    - vim
+    - fail2ban

@@ -1,0 +1,77 @@
+---
+- hosts: php_servers
+  sudo: True
+
+  roles:
+    - role: php
+      php_repository: ppa:ondrej/php5-5.6
+      php_timezone: Europe/London
+
+      php_install:
+        - php5
+        - php5-intl
+        - php5-curl
+        - php5-gd
+        - php5-mysql
+        - php5-mcrypt
+        - php5-memcache
+
+      php_configure:
+        - file: /etc/php5/cli/php.ini
+          values:
+            - { section: date, key: date.timezone, value: '{{ php_timezone }}' }
+        - file: /etc/php5/apache2/php.ini
+          values:
+            - { section: date, key: date.timezone, value: '{{ php_timezone }}' }
+
+      php_config:
+        - option: "error_reporting"
+          section: "PHP"
+          value: "E_ALL"
+        - option: "display_errors"
+          section: "PHP"
+          value: "On"
+        - option: "display_startup_errors"
+          section: "PHP"
+          value: "On"
+
+    - role: kosssi.composer
+    - role: NBZ4live.php-fpm
+      php_fpm_pool_defaults:
+        pm: dynamic
+        pm.max_children: 5
+        pm.start_servers: 2
+        pm.min_spare_servers: 1
+        pm.max_spare_servers: 3
+      php_fpm_ini:
+        # PHP section directives
+        - option: "engine"
+          section: "PHP"
+          value: "1"
+        - option: "error_reporting"
+          section: "PHP"
+          value: "E_ALL & ~E_DEPRECATED & ~E_STRICT"
+        - option: "date.timezone"
+          section: "PHP"
+          value: "{{ php_timezone }}"
+        # soap section directives
+        - option: "soap.wsdl_cache_dir"
+          section: "soap"
+          value: "/tmp"
+       # Pdo_mysql section directives
+        - option: "pdo_mysql.cache_size"
+          section: "Pdo_mysql"
+          value: "2000"
+      php_fpm_config:
+        - option: "log_level"
+          section: "global"
+          value: "notice"
+        - option: "syslog.facility"
+          section: "global"
+          value: "daemon"
+      php_fpm_pools:
+        - name: pool_1
+          user: www-data
+          group: www-data
+          listen: 8001
+          chdir: /

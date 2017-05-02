@@ -1,0 +1,6 @@
+- hosts: symfony_servers
+  sudo: True
+
+
+  roles:
+    - symfony

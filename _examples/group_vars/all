@@ -1,0 +1,33 @@
+---
+
+nginx_user: www-data
+nginx_group: www-data
+
+# Create a group for every user and make that their primary group
+users_create_per_user_group: true
+# If we're not creating a per-user group, then this is the group all users
+# belong to
+users_group: users
+# The default shell for a user if none is specified
+users_default_shell: /bin/bash
+# Create home dirs for new users? Set this to false if you manage home
+# directories in some other way.
+users_create_homedirs: true
+
+# Lists of users to create and delete
+users:
+  - username: your_user_name
+    name: "Your User Name"
+    password: $6$rounds=10000$IRl3bKdqDPY8dw2A$GWg98/IHd65l6fUu.9DSHgSHBHZSksGtZkO.QNGAwkxIqWPLIXrRZbDuh5c8mG0YLSkb.aDi41KjVZ04TRT451
+    groups: ['deploy', 'sudo', 'www-data']
+    uid: 2001
+    shell: /bin/zsh # feel free to switch this to /bin/bash, and remove oh_my_zsh below
+    oh_my_zsh:
+      - theme: robbyrussell
+    ssh_key:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== you@yourkey.whatever
+
+
+users_deleted: []
+
+groups_to_create: ['deploy']

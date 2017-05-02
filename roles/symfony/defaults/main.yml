@@ -1,0 +1,9 @@
+---
+symfony_web_server: "nginx"
+symfony_web_server_user: "www-data"
+symfony_web_server_group: "www-data"
+
+symfony2_bash_completion: true
+
+symfony_composer_install: true
+symfony_clear_cache: true

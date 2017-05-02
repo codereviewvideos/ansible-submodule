@@ -1,0 +1,57 @@
+[submodule "roles/mysql"]
+	path = roles/mysql
+	url = https://github.com/geerlingguy/ansible-role-mysql
+[submodule "roles/users"]
+	path = roles/users
+	url = https://github.com/mivok/ansible-users.git
+[submodule "roles/ubuntu-unattended-upgrades"]
+	path = roles/ubuntu-unattended-upgrades
+	url = https://github.com/jnv/ansible-role-unattended-upgrades
+[submodule "roles/fail2ban"]
+	path = roles/fail2ban
+	url = https://github.com/Oefenweb/ansible-fail2ban
+[submodule "roles/vim"]
+	path = roles/vim
+	url = https://github.com/weareinteractive/ansible-vim.git
+[submodule "roles/ubuntu-server-basics"]
+	path = roles/ubuntu-server-basics
+	url = https://github.com/codereviewvideos/ansible-ubuntu-server-basics
+[submodule "library/sshknownhosts"]
+	path = library/sshknownhosts
+	url = https://github.com/bfmartin/ansible-sshknownhosts
+[submodule "roles/ssh"]
+	path = roles/ssh
+	url = https://github.com/willshersystems/ansible-sshd.git
+[submodule "roles/linux-core-software"]
+	path = roles/linux-core-software
+	url = https://github.com/codereviewvideos/ansible-linux-core-software
+[submodule "roles/ohmyzsh"]
+	path = roles/ohmyzsh
+	url = https://github.com/codereviewvideos/ansible-role-ohmyzsh
+[submodule "roles/timezone"]
+	path = roles/timezone
+	url = https://github.com/knopki/ansible-timezone
+[submodule "roles/ANXS.apt"]
+	path = roles/ANXS.apt
+	url = https://github.com/ANXS/apt
+[submodule "roles/ANXS.hostname"]
+	path = roles/ANXS.hostname
+	url = https://github.com/ANXS/hostname.git
+[submodule "roles/geerlingguy.mysql"]
+	path = roles/geerlingguy.mysql
+	url = https://github.com/geerlingguy/ansible-role-mysql
+[submodule "roles/nginx"]
+	path = roles/nginx
+	url = https://github.com/jdauphant/ansible-role-nginx
+[submodule "roles/php"]
+	path = roles/php
+	url = https://github.com/kosssi/ansible-role-php
+[submodule "roles/kosssi.composer"]
+	path = roles/kosssi.composer
+	url = https://github.com/kosssi/ansible-role-composer
+[submodule "roles/NBZ4live.php-fpm"]
+	path = roles/NBZ4live.php-fpm
+	url = https://github.com/NBZ4live/ansible-php-fpm
+[submodule "roles/symfony"]
+	path = roles/symfony
+	url = https://github.com/codereviewvideos/ansible-role-symfony2

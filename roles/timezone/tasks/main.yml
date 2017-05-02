@@ -1,0 +1,14 @@
+---
+# tasks file for timezone
+- name: Copy timezone {{ timezone }} to /etc/localtime
+  command: rsync --itemize-changes --checksum --copy-links /usr/share/zoneinfo/{{ timezone }} /etc/localtime
+  register: command_result
+  when: ansible_os_family == "Debian"
+  changed_when: "command_result.stdout != ''"
+  tags: [configuration,timezone]
+
+- name: Set /etc/timezone to {{ timezone }}
+  template: dest=/etc/timezone src=timezone.j2
+  notify: update tzdata
+  when: ansible_os_family == "Debian"
+  tags: [configuration,timezone]

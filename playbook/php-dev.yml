@@ -1,0 +1,14 @@
+---
+- hosts: php_dev_servers
+  sudo: True
+
+  roles:
+    - role: php
+      php_xdebug_key: PHPSTORM
+      php_install:
+        - php5-xdebug
+      php_configure:
+        - file: /etc/php5/mods-available/xdebug.ini
+          values:
+            - { section: date, key: date.timezone, value: '{{ php_timezone }}' }
+            - { section: xdebug, key: xdebug.idekey, value: '{{ php_xdebug_key }}' }

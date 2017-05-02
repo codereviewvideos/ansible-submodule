@@ -1,0 +1,10 @@
+---
+
+- include: ubuntu.yml
+- include: nginx.yml
+- include: php.yml
+- include: php-dev.yml
+- include: mysql.yml
+- include: symfony.yml
+
+

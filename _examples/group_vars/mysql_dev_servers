@@ -1,0 +1,11 @@
+# List of databases to be created
+mysql_databases: 
+  - name: dev_db
+
+
+# List of users to be created
+mysql_users:
+  - name: dbuser
+    password: dbpassword
+    priv: "*.*:ALL"                     # optional, defaults to "*.*:ALL"
+    host: "%"                           # optional, defaults to "localhost"

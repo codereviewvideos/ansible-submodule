@@ -1,0 +1,10 @@
+---
+
+- name: Configuring logrotate
+  template:
+    src: etc-logrotate.d-item.j2
+    dest: "/etc/logrotate.d/{{ item.name }}"
+    owner: root
+    group: root
+    mode: "0644"
+  with_items: "{{ logrotate_scripts }}"

@@ -1,0 +1,3 @@
+symfony_environment: development
+symfony2_project_root: "/var/www/{{ ansible_fqdn }}"
+symfony2_php_fpm_socket: localhost:8001

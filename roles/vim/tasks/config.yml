@@ -1,0 +1,19 @@
+---
+
+- name: Creating configuration directory
+  file:
+    state: directory
+    dest: /etc/vim
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Configuring vim
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: "0644"
+  with_items:
+    - "etc/vim/vimrc.local"
