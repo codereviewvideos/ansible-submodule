@@ -1,0 +1,4 @@
+symfony_website_domain_name: "{{ website_domain_name }}"
+symfony_environment: development
+symfony_project_root: "/var/www/{{ symfony_website_domain_name }}"
+symfony_php_fpm_socket: localhost:9000

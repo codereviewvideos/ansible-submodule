@@ -1,0 +1,2 @@
+symfony_environment: prod
+symfony_php_fpm_socket: localhost:9000
